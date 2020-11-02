@@ -27,6 +27,7 @@ endif
 SUBDIRS = ${wildcard */}
 SRC = ${wildcard *.java}
 CLASSES = ${SRC:.java=.class}
+CLASSPATH = src/
 DOCS = ./docs
 PKGS = jti
 
@@ -45,7 +46,7 @@ ${SUBDIRS}:
 
 #Compile Java source files
 %.class: %.java
-	javac $<
+	javac -cp ${CLASSPATH} $< 
 
 #Clean project from class files
 clean: ${SUBDIRS}
